@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, Response, Request
+from core.config import settings
 from core.auth import get_api_key
 from core.security import validate_sector
 from core.limiter import limiter
@@ -9,7 +10,7 @@ from services.analyzer import generate_report
 router = APIRouter()
 
 @router.get("/analyze/{sector}")
-@limiter.limit("5/minute")  # 5 requests per minute per user
+@limiter.limit(settings.RATE_LIMIT)  
 async def analyze_sector(
     request: Request,
     sector: str,
