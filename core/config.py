@@ -1,10 +1,14 @@
 import os
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Trade Opportunities API"
     VERSION: str = "0.1.0"
     API_KEY: str = os.environ.get("API_KEY", "test123")  
     RATE_LIMIT: str = "5/minute"  
+    GEMINI_API_KEY: str
+    
+    class Config:
+        env_file = ".env"
 
 settings = Settings()

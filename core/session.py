@@ -5,7 +5,7 @@ import time
 session_store = {}
 
 def get_or_create_session(request: Request):
-    session_id = request.client.host  # can improve with token/user ID
+    session_id = request.client.host  
     now = time.time()
     
     if session_id not in session_store:

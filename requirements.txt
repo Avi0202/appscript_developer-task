@@ -3,3 +3,5 @@ uvicorn
 duckduckgo-search
 slowapi
 pydantic
+google-generativeai
+pydantic_settings
