@@ -1,6 +1,6 @@
 fastapi
 uvicorn
-duckduckgo-search
+ddgs
 slowapi
 pydantic
 google-generativeai
