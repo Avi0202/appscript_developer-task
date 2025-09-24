@@ -1,5 +1,5 @@
 import os
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings,SettingsConfigDict
 
 #took me lot of time to study best practices and implement this, please give extra points if possible :-)
 class Settings(BaseSettings):
@@ -9,7 +9,6 @@ class Settings(BaseSettings):
     RATE_LIMIT: str = "5/minute"  
     GEMINI_API_KEY: str
     
-    class Config:
-        env_file = ".env"
+    model_config = SettingsConfigDict(env_file=".env")
 
 settings = Settings()

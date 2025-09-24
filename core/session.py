@@ -14,4 +14,4 @@ def get_or_create_session(request: Request):
         session_store[session_id]["last_active"] = now
     
     session_store[session_id]["count"] += 1
-    return session_id, session_store[session_id]
+    return session_id, session_store[session_id].copy()
