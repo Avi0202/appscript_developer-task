@@ -27,6 +27,44 @@ This project is a FastAPI service that fetches real-world market news for differ
 
 ---
 
+## Project Structure
+
+The project is organized into clear layers:
+
+- `core/` → cross-cutting concerns like config, auth, logging, sessions,input validation
+- `routes/` → only defines API endpoints, thin controller layer
+- `services/` → handles business logic (fetching news, analyzing with LLM)
+- `tests/` → pytest-based automated tests for endpoint, validation, session, and LLM behavior
+
+```
+appscript_developer-task/
+├── app.py                         # FastAPI entrypoint, global middleware, exception handling
+├── .env                           # Environment variables (API keys, configs) [ignored in Git]
+├── requirements.txt               # Python dependencies
+├── requirements-dev.txt           # Pyton dependencies for testing
+├── README.md                      # Project documentation
+│
+├── core/                          # Cross-cutting core functionality
+│   ├── config.py                  # Application settings (loads from .env using Pydantic Settings)
+│   ├── auth.py                    # API Key authentication logic
+│   ├── limiter.py                 # Rate limiting configuration (slowapi)
+│   ├── logger.py                  # Centralized logging setup
+│   ├── session.py                 # Lightweight in-memory session management
+│   └── validation.py              # Regex validation for sector names
+│
+├── routes/                        # API route definitions
+│   └── analyze.py                 # /analyze/{sector} endpoint
+│
+├── services/                      # Business logic (data fetch + AI analysis)
+│   ├── data_collector.py          # Fetches live news data 
+│   └── llm_insight.py             # Calls Gemini LLM to generate structured Markdown reports
+│
+└── tests/                         # Automated testing (pytest)
+    ├── test_analyze.py            # Endpoint tests (valid input, invalid, rate limit, auth)
+    ├── test_validation.py         # Unit tests for input validator
+    └── test_session.py            # Session store behavior (creation, increment)
+                 
+```
 
 ## Setup  
 
@@ -78,6 +116,20 @@ Example (cURL):
 ```
 curl -H "X-API-KEY: test123" http://127.0.0.1:8000/analyze/technology
 ```
+
+## Running Tests
+
+Install dependencies
+```
+pip install -r requirements-dev.txt
+
+```
+Run pytest
+```
+pytest -v
+
+```
+ 
 
 
 
