@@ -41,7 +41,7 @@ Generate a structured **Markdown Report** with the following sections:
         return response.text
     except Exception as e:
         logger.error(f"Gemini analysis failed: {e}", exc_info=True)
-        fallback = f"""# Market Analysis Report: {sector.capitalize()}
+        fallback = f"""# Market Analysis Report: {sector.capitalize()}   
 
 ## Market Overview
 Unable to fetch AI-driven analysis due to an error.
@@ -56,6 +56,5 @@ Unable to fetch AI-driven analysis due to an error.
 Please retry later when AI service is available.
 
 ---
-*Fallback report generated without LLM*
 """
-        return fallback
+        return fallback   #gracefull error handeling :-)

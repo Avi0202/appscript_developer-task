@@ -1,6 +1,7 @@
 from ddgs import DDGS
 
-def get_sector_news(sector: str, max_results: int = 5):
+def get_sector_news(sector: str, max_results: int = 5):  #if there are performance issues max results can be reduced, 
+                                                        #in my testing token limit wasn't reached even with 10 results 
     results = []
     query = f"{sector} India market news"
     with DDGS() as dgs:

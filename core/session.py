@@ -2,7 +2,7 @@ from fastapi import Request
 import time
 
 
-session_store = {}
+session_store = {}  # I'm storing the sessions in memory as the project description explicitely mentioned that persistence is not required
 
 def get_or_create_session(request: Request):
     session_id = request.client.host  
