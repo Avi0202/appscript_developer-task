@@ -1,7 +1,8 @@
+# Sets some defaults as well as reads from .env file
 import os
 from pydantic_settings import BaseSettings,SettingsConfigDict
 
-#took me lot of time to study best practices and implement this, please give extra points if possible :-)
+
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Appscript Developer Task"
     VERSION: str = "0.1.0"

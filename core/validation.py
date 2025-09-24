@@ -1,3 +1,4 @@
+#validates input for sector to prevent injection attacks and invalid inputs, list of sectors can be added here to make it more strict
 import re
 from fastapi import HTTPException
 
