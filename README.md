@@ -32,8 +32,8 @@ This project is a FastAPI service that fetches real-world market news for differ
 
 1. **Clone the repo**  
    ```
-   git clone <repo-url>
-   cd trade-opportunities-api
+   git clone https://github.com/Avi0202/appscript_developer-task.git
+   cd appscript_developer-task
    ```
 
 2. **Create a virtual environment**  

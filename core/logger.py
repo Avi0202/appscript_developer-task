@@ -6,4 +6,4 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(name)s - %(message)s"
 )
 
-logger = logging.getLogger("trade_opportunities_api")
+logger = logging.getLogger("appscript_developer-task")

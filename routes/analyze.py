@@ -23,7 +23,7 @@ async def analyze_sector(
     sector = validate_sector(sector)   #input is getting validated here, just checking for alphabets,validation can be updated to have specific list of sectors if needed
 
     
-    news_items = get_sector_news(sector)  #fetching news from duckduckgo, list of dictionarys with title,snippet and url
+    news_items = get_sector_news(sector)  #fetching news from duckduckgo, list of dictionaries with title,snippet and url
     
     if not news_items:
         return Response(content=f"# No News Found for {sector}", media_type="text/markdown")
